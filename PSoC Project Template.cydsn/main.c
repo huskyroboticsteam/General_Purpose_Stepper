@@ -8,7 +8,6 @@ StepperMotor motor = {0, STEP_DELAY_MS, 1, 4096};
 int main(void) {
     CyGlobalIntEnable; // Enable global interrupts
     CAN_Start();
-
     CANPacket packet;
 
     for (;;) {
