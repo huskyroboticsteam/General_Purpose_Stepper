@@ -1,6 +1,7 @@
 #include <project.h>
 #include "CANPacket.h"
 #include "StepperMotor.h"
+#include <math.h>
 
 // Step Commands: IN4 IN3 IN2 IN1
 uint8_t stepSequence[MAX_STEPS][4] = {
@@ -46,11 +47,11 @@ void setStepPins(int stepIndex) {
 }
 
 // Process CAN Packets
-void processCANPacket(CANPacket *packet) {
+void processCANPacket(CANPacket *packet, StepperMotor *motor) {
     int packetID = GetPacketID(packet);
     if (packetID == ID_GPIO_BOARD_PWM_SET) { // ID_GPIO_BOARD_PWM_SET == the degree ID
         int16_t degrees = DecodeBytesToIntMSBFirst(packet->data, 0, 1);
-        rotateDegrees(&motor, degrees);
+        rotateDegrees(motor, degrees);
     }
 }
 

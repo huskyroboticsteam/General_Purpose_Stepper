@@ -1,5 +1,6 @@
 #include <stdint.h>
 #include <project.h>
+#include "CANPacket.h"
 
 // Constants
 #define MAX_STEPS 4 // 4-step sequence (AB, BC, CD, DA)
@@ -20,5 +21,5 @@ typedef struct {
 void setStepPins(int stepIndex);
 void stepMotor(StepperMotor *motor, int steps);
 void rotateDegrees(StepperMotor *motor, int degrees);
-void processCANPacket(CANPacket *packet);
+void processCANPacket(CANPacket *packet, StepperMotor *motor);
 void delayMs(uint16_t ms);

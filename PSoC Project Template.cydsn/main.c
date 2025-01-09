@@ -14,7 +14,7 @@ int main(void) {
         // Check for CAN packets
         int err = PollAndReceiveCANPacket(&packet);
         if (!err) {
-            processCANPacket(&packet);
+            processCANPacket(&packet, &motor);
         }
     }
 }
