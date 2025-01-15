@@ -2,6 +2,7 @@
 #include "CANPacket.h"
 #include "StepperMotor.h"
 #include <math.h>
+#include <stdlib.h>
 
 // Step Commands: IN4 IN3 IN2 IN1
 uint8_t stepSequence[MAX_STEPS][4] = {
